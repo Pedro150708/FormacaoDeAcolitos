@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Formação de Acólitos e Coroinhas - Paróquia Santa Cruz</title>
+    <style>
+        /* =========================================
+           VARIÁVEIS E ESTILOS GERAIS
+           ========================================= */
+        :root {
+            --primary-red: #8B1E24; /* Vermelho litúrgico */
+            --primary-red-dark: #631217;
+            --gold: #C59B27; /* Dourado litúrgico */
+            --gold-light: #F4EBD0;
+            --bg-cream: #FAF8F5;
+            --text-dark: #2C2A29;
+            --text-muted: #5C5855;
+            --white: #FFFFFF;
+            --border-color: #E2DCD5;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 75px;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.65;
+            overflow-x: hidden;
+            word-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =========================================
+           NAVBAR (MENU DE NAVEGAÇÃO RESPONSIVO)
+           ========================================= */
+
+           a{
+            color:#5C5855;
+           }
+        header {
+            background-color: var(--primary-red);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .brand {
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .brand span {
+            color: var(--gold);
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            padding: 0.45rem 0.65rem;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+            display: block;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: var(--primary-red-dark);
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 6px;
+            color: var(--white);
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* =========================================
+           HERO / CABEÇALHO PRINCIPAL
+           ========================================= */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: clamp(2.5rem, 6vw, 4rem) 1.2rem;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.5rem, 5vw, 2.3rem);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.15rem);
+            color: var(--gold-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           CONTAINER E SEÇÕES
+           ========================================= */
+        main {
+            max-width: 1100px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: var(--white);
+            border-radius: 10px;
+            padding: clamp(1.3rem, 4vw, 2.2rem);
+            margin-bottom: 1.8rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-red);
+        }
+
+        h2 {
+            color: var(--primary-red);
+            font-size: clamp(1.35rem, 4.2vw, 1.8rem);
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold-light);
+            line-height: 1.3;
+        }
+
+        h3 {
+            color: var(--primary-red-dark);
+            font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+            margin-top: 1.6rem;
+            margin-bottom: 0.7rem;
+            line-height: 1.3;
+        }
+
+        h4 {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            border-left: 3px solid var(--gold);
+            padding-left: 0.6rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+        }
+
+        ul {
+            margin-left: 1.25rem;
+            margin-bottom: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.55rem;
+            font-size: 0.97rem;
+        }
+
+        .obs-box {
+            background-color: var(--gold-light);
+            border-left: 4px solid var(--gold);
+            padding: 0.95rem 1.1rem;
+            border-radius: 0 6px 6px 0;
+            margin: 1.2rem 0;
+            font-size: 0.94rem;
+        }
+
+        /* =========================================
+           ESPAÇOS PARA FOTOS (EXPANSÍVEIS)
+           ========================================= */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+            gap: 1rem;
+            margin: 1.3rem 0;
+        }
+
+        .photo-slot {
+            border: 2px dashed var(--gold);
+            background-color: var(--bg-cream);
+            border-radius: 8px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            cursor: zoom-in;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .photo-slot:hover,
+        .photo-slot:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(197, 155, 39, 0.25);
+            border-color: var(--primary-red);
+        }
+
+        .photo-slot .placeholder-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+        }
+
+        .photo-slot .placeholder-text {
+            font-weight: 600;
+            color: var(--primary-red);
+            font-size: 0.95rem;
+        }
+
+        .photo-slot .placeholder-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* Estilo para quando você inserir a tag <img> dentro do .photo-slot */
+        .photo-slot img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        /* =========================================
+           CARDS E GRIDS DE CONTEÚDO
+           ========================================= */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: var(--bg-cream);
+            padding: 1.15rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card h3,
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: var(--primary-red);
+        }
+
+        /* Badges de Cores Litúrgicas */
+        .color-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .color-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--bg-cream);
+            border-radius: 6px;
+            margin-bottom: 0.65rem;
+        }
+
+        .color-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 2px;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+
+        /* =========================================
+           CONTATOS E RODAPÉ
+           ========================================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-card {
+            background: var(--bg-cream);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-red);
+            padding: 1.2rem;
+            border-radius: 6px;
+        }
+
+        .contact-card h4 {
+            border: none;
+            padding: 0;
+            margin: 0 0 0.6rem 0;
+            color: var(--primary-red);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.4rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0.45rem 0.9rem;
+            background-color: var(--primary-red);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .contact-link:hover {
+            background-color: var(--primary-red-dark);
+        }
+
+        .contact-link.whatsapp {
+            background-color: #1E9E4E;
+            color: #fff;
+        }
+
+        .contact-link.whatsapp:hover {
+            background-color: #167D3D;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2.2rem 1.2rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-top: 0;
+        }
+
+        footer p {
+            max-width: 750px;
+            margin: 0 auto 1rem auto;
+            color: #E0DCD8;
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           MODAL (LIGHTBOX PARA EXPANDIR FOTOS)
+           ========================================= */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            width: 100%;
+            max-width: 750px;
+            max-height: 85vh;
+            background: var(--white);
+            padding: 1.2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            animation: zoomIn 0.25s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 65vh;
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .lightbox-placeholder-expanded {
+            width: 100%;
+            min-height: 240px;
+            border: 3px dashed var(--gold);
+            background: var(--bg-cream);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .lightbox-caption {
+            margin-top: 0.9rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-red);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 12px;
+            right: 16px;
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.8rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2010;
+        }
+
+        .lightbox-close:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* =========================================
+           MEDIA QUERIES (AJUSTES ESPECÍFICOS MOBILE)
+           ========================================= */
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-red-dark);
+                padding: 0.8rem;
+                margin-top: 0.75rem;
+                border-radius: 8px;
+                gap: 0.3rem;
+                border: 1px solid rgba(255, 255, 255, 0.15);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.7rem 0.8rem;
+                font-size: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 0 0.75rem;
+                margin: 1rem auto;
+            }
+
+            section {
+                padding: 1.2rem 1rem;
+                margin-bottom: 1.3rem;
+                border-radius: 8px;
+            }
+
+            ul {
+                margin-left: 1.1rem;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .contact-link {
+                width: 100%;
+            }
+
+            .lightbox-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="#inicio" class="brand"><span>✝</span> Pastoral dos Acólitos e Coroinhas</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#padroeiro">Padroeiro</a></li>
+                <li><a href="#liturgia">Ano e Missa</a></li>
+                <li><a href="#funcoes">Funções</a></li>
+                <li><a href="#objetos">Objetos</a></li>
+                <li><a href="#vestes">Vestes</a></li>
+                <li><a href="#igreja-gestos">Igreja e Gestos</a></li>
+                <li><a href="#espiritualidade">Espiritualidade</a></li>
+                <li><a href="#contatos">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CABEÇALHO PRINCIPAL -->
+    <div class="hero" id="inicio">
+        <h1>PASTORAL DOS ACÓLITOS E COROINHAS</h1>
+        <p>Paróquia Santa Cruz — Guia de Formação para Novos Acólitos e Coroinhas</p>
+    </div>
+
+    <main>
+        <!-- 1. INTRODUÇÃO -->
+        <section id="introducao">
+            <h2>1. Introdução</h2>
+            <p>Olá para você, jovem que quer ser um acólito ou já é! Essa página foi feita a fim de te ajudar a conhecer mais sobre esse ministério lindo que existe em nossa Igreja. Aqui, você verá o essencial para uma boa formação de acólitos e coroinhas competentes e humildes em seu serviço. Utilize essa página como consulta em caso de dúvidas, mas lembre-se sempre de conversar com seus colegas mais experientes, coordenadores e o pároco.</p>
+
+            <div class="obs-box">
+                <strong>Obs:</strong> Esse documento é focado para a formação de acólitos, pois traz uma linguagem mais técnica e explica as funções que os coroinhas não podem executar!
+            </div>
+
+            <h3>1.1 O que é um coroinha/acólito?</h3>
+            <p>O coroinha é o menino ou menina, geralmente criança ou adolescente, que auxilia o padre e o diácono durante as celebrações da Igreja Católica, especialmente na Santa Missa e momentos como a exposição do Santíssimo. O acólito desempenha algumas funções a mais, pois possuem uma idade e maturidade maior se comparada a dos coroinhas.</p>
+            <p>A função dos coroinhas nasceu nos primeiros séculos do Cristianismo, quando crianças e jovens auxiliavam bispos e padres nas celebrações litúrgicas e no canto. O termo "coroinha" surgiu para designar os "meninos do coro", que respondiam às missas em latim e ajudavam no altar.</p>
+            <p>Com a reforma litúrgica e o uso das línguas vernáculas (como o português), o serviço deixou de ser apenas responder em latim e passou a enfatizar a participação ativa, o auxílio direto ao sacerdote e a harmonia da celebração. Em 1994, o Papa João Paulo II autorizou formalmente que meninas também servissem como coroinhas.</p>
+            <p>O serviço dos coroinhas ao altar é fundamental para a liturgia católica porque une o auxílio prático ao sacerdote com a formação espiritual e o testemunho de fé de crianças e jovens. Mais do que cumprir tarefas durante a celebração, o coroinha representa a comunidade junto ao altar e ajuda a tornar o rito mais digno, ordenado e orante.</p>
+
+            <h4>Principais qualidades de um bom coroinha/acólito:</h4>
+            <ul>
+                <li><strong>Amor a Deus e à Eucaristia:</strong> servir com alegria, devoção e intimidade com Jesus, entendendo o altar como espaço sagrado.</li>
+                <li><strong>Pontualidade e assiduidade:</strong> cumprir a escala com responsabilidade, chegar com antecedência e avisar ou trocar com antecedência quando não puder ir.</li>
+                <li><strong>Atenção e postura:</strong> acompanhar os momentos da celebração, manter o olhar voltado para o que acontece no rito, evitar conversas ou distrações e cuidar da postura corporal e das vestes.</li>
+                <li><strong>Humildade e espírito de serviço:</strong> ajudar sem buscar destaque, ouvir o padre e os coordenadores e apoiar os coroinhas mais novos.</li>
+                <li><strong>Cuidado com o espaço e os objetos litúrgicos:</strong> manusear com zelo livros, velas, vasos e demais itens da celebração.</li>
+                <li><strong>Vontade de aprender:</strong> conhecer as partes da Missa, os símbolos e os nomes dos objetos litúrgicos.</li>
+                <li><strong>Testemunho no dia a dia:</strong> viver o respeito, a educação e a fé também em casa, na escola e na comunidade.</li>
+            </ul>
+        </section>
+
+        <!-- 1.3 PADROEIRO -->
+        <section id="padroeiro">
+            <h2>1.3 Nosso Padroeiro: São Tarcísio</h2>
+            <div class="grid-2">
+                <div>
+                    <p>O padroeiro dos acólitos, coroinhas, cerimoniários e ministros da eucaristia é <strong>São Tarcísio</strong>. São Tarcísio foi um jovem cristão do século III, martirizado em Roma por volta do ano 257, durante as perseguições do imperador Valeriano. Ele tinha 12 anos e ajudava o Papa de sua época, Sisto II.</p>
+                    <p>Tarcísio se voluntariou para levar a Eucaristia aos prisioneiros e doentes, pois sua idade não levantaria suspeitas. No caminho foi abordado por jovens pagãos que queriam forçar São Tarcísio a revelar o que carregava. Ele resistiu fortemente, sendo espancado e apedrejado até morrer, mas não abriu mão das Sagradas Hóstias.</p>
+                    <p>Um soldado romano que era secretamente cristão notou o jovem ferido no chão e foi atendê-lo, mas a Eucaristia já não estava mais em suas mãos. Acredita-se que ela se "fundiu" ao peito de Tarcísio, realizando assim sua primeira comunhão. Peçamos a intercessão de São Tarcísio para servir a Deus com amor e coragem diante dos desafios do mundo.</p>
+                </div>
+                <div>
+                    <!-- ESPAÇO RESERVADO PARA FOTO -->
+                    <div class="photo-slot" data-caption="São Tarcísio — Padroeiro dos Acólitos e Coroinhas">
+                        <img src="https://cdn.conventodapenha.org.br/wp-content/uploads/2019/08/04110951/s%C3%A3o-tarc%C3%ADsio.jpg" alt="São Tarcísio">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FORMAÇÃO LITÚRGICA: ANO LITÚRGICO E MISSA -->
+        <section id="liturgia">
+            <h2>2. Formação Litúrgica</h2>
+
+            <h3>2.1 Ano Litúrgico e Cores</h3>
+            <p>Diferente do calendário civil, o ano litúrgico não começa em janeiro, mas sim no período do <strong>Advento</strong> (nos meses de novembro/dezembro). A partir daqui, meditamos desde a preparação para o nascimento de Jesus, passando por sua vida terrena, morte, ressurreição, ascensão aos céus, demais solenidades (marianas, memórias de santos e devoções da Igreja) até a solenidade de Cristo Rei. Após isso, o ano litúrgico recomeça nesta ordem:</p>
+
+            <ul>
+                <li><strong>Advento:</strong> Tempo de preparação para o nascimento de Jesus Cristo. Corresponde às 4 semanas que antecedem o Natal.</li>
+                <li><strong>Natal:</strong> Celebra a encarnação e o nascimento de Jesus, indo até a festa do Batismo do Senhor.</li>
+                <li><strong>Quaresma:</strong> 40 dias de conversão, jejum e oração até a Semana Santa e o Tríduo Pascal (Paixão, Morte e Ressurreição).</li>
+                <li><strong>Tempo Pascal:</strong> 50 dias de alegria pela ressurreição, encerrando-se em Pentecostes.</li>
+                <li><strong>Tempo Comum:</strong> Dividido em duas partes (após o Batismo do Senhor e após Pentecostes), foca nos ensinamentos e na vida pública de Jesus no cotidiano. Também há algumas solenidades espalhadas nesse período.</li>
+            </ul>
+
+            <h4>Cores Litúrgicas e seus significados:</h4>
+            <ul class="color-list">
+                <li>
+                    <span class="color-dot" style="background-color: #2E7D32;"></span>
+                    <div><strong>Verde:</strong> Usado no Tempo Comum. Representa esperança, perseverança e a vida que floresce em Cristo.</div>
+                </li>
+                <li>
+                    <span class="color-dot" style="background-color: #6A1B9A;"></span>
+                    <div><strong>Roxo:</strong> Usado na Quaresma, Advento e Missa pelos Falecidos (nesse último caso, pode ser substituída pela cor preta). Representa a penitência e meditação.</div>
+                </li>
+                <li>
+                    <span class="color-dot" style="background: linear-gradient(135deg, #FFFFFF 50%, #D4AF37 50%);"></span>
+                    <div><strong>Branco/Dourado:</strong> Essas andam juntas. Representam a alegria, pureza, luz e glória. É usada no Tempo do Natal, Tempo Pascal, festas do Senhor (exceto a Paixão), de Nossa Senhora, dos anjos e dos santos que não foram mártires.</div>
+                </li>
+                <li>
+                    <span class="color-dot" style="background-color: #C62828;"></span>
+                    <div><strong>Vermelho:</strong> Representa paixão, martírio e o Espírito Santo. É usada no Domingo de Ramos, Sexta-feira Santa, Domingo de Pentecostes, celebrações da Paixão do Senhor, festas dos Apóstolos, Evangelistas e Mártires.</div>
+                </li>
+                <li>
+                    <span class="color-dot" style="background-color: #F48FB1;"></span>
+                    <div><strong>Rosa:</strong> É a menos utilizada. É a alegria no meio da penitência (um "alento" ou pausa no tempo de preparação). Usada no 3º Domingo do Advento (<em>Gaudete</em>) e 4º Domingo da Quaresma (<em>Laetare</em>).</div>
+                </li>
+            </ul>
+
+            <h3>2.2 Estrutura da Missa</h3>
+            <p>Uma Missa convencional segue uma estrutura fácil de decorar, mas que requer atenção. Essa estrutura passa por algumas alterações, dependendo da solenidade do dia e se a Missa é dominical ou semanal:</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>1. Ritos Iniciais</h4>
+                    <ul>
+                        <li>Procissão de entrada</li>
+                        <li>Saudação</li>
+                        <li>Ato penitencial</li>
+                        <li>Glória</li>
+                        <li>Oração do dia</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>2. Liturgia da Palavra</h4>
+                    <ul>
+                        <li>Primeira leitura</li>
+                        <li>Salmo</li>
+                        <li>Segunda leitura</li>
+                        <li>Evangelho</li>
+                        <li>Homilia</li>
+                        <li>Credo</li>
+                        <li>Oração dos fiéis</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>3. Liturgia Eucarística</h4>
+                    <ul>
+                        <li>Ofertório</li>
+                        <li>Preparação do altar</li>
+                        <li>Oração Eucarística</li>
+                        <li>Consagração</li>
+                        <li>Comunhão</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>4. Ritos Finais</h4>
+                    <ul>
+                        <li>Avisos</li>
+                        <li>Bênção</li>
+                        <li>Envio</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.3 FUNÇÕES DO ACÓLITO -->
+        <section id="funcoes">
+            <h2>2.3 Funções do Acólito</h2>
+            <p>Durante a Missa, os acólitos e coroinhas ajudarão o celebrante para uma execução sublime da Liturgia, executando certas funções.</p>
+
+            <div class="obs-box">
+                <strong>Atenção:</strong> Note que as funções marcadas com um asterisco (<strong>*</strong>) são exclusivas dos acólitos e <strong>não devem</strong> ser realizadas por coroinhas.
+            </div>
+
+            <ul>
+                <li><strong>Cruciferário:</strong> Aquele que carrega a cruz processional;</li>
+                <li><strong>Ceroferário *:</strong> Cuidam das velas na procissão de entrada/Evangelho;</li>
+                <li><strong>Librífero *:</strong> Conduz e apresenta os livros sagrados (principalmente o Missal Romano);</li>
+                <li><strong>Turiferário *:</strong> Manuseia o turíbulo durante as Missas e adorações ao Santíssimo;</li>
+                <li><strong>Navetário/Naveteiro:</strong> Carrega a naveta, contendo incenso para o turíbulo. Acompanha o turiferário;</li>
+                <li><strong>Mitrífero:</strong> Responsável por segurar, conduzir e entregar a mitra (insígnia usada pelo bispo) durante as celebrações litúrgicas;</li>
+                <li><strong>Baculífero:</strong> Encarregado de segurar, cuidar e entregar o báculo (o cajado pastoral que simboliza o bispo como o Bom Pastor) durante celebrações com a presença do bispo.</li>
+            </ul>
+
+            <h4>Outros auxílios importantes durante a celebração:</h4>
+            <ul>
+                <li>A utilização das galhetas;</li>
+                <li>A purificação das mãos do celebrante;</li>
+                <li>Uso da sineta;</li>
+                <li>Colocar as âmbulas vazias e o purificatório no altar durante o Cordeiro de Deus;</li>
+                <li>Levar as tampas das âmbulas à Capela do Santíssimo;</li>
+                <li>Cuidar da purificação do cálice e recolhê-lo após o uso.</li>
+            </ul>
+
+            <p><strong>Preparação prévia:</strong> O acólito deve chegar com antecedência para verificar se os preparativos da Missa estão corretos, conferindo o Altar e demais objetos litúrgicos e paramentar-se antes do celebrante.</p>
+        </section>
+
+        <!-- 2.4 OBJETOS LITÚRGICOS -->
+        <section id="objetos">
+            <h2>2.4 Objetos Litúrgicos</h2>
+            <p>Aqui está o guia fundamental dos objetos litúrgicos para o conhecimento dos acólitos e coroinhas:</p>
+
+            <!-- ESPAÇOS RESERVADOS PARA FOTOS DE OBJETOS -->
+            <div class="photo-grid">
+                <div class="photo-slot" data-caption="Conjunto do Cálice: Cálice, Patena, Corporal, Pala e Sanguíneo">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Cálice e Alfaias</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Turíbulo e Naveta (utilizados nas incensações)">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Turíbulo e Naveta</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Ostensório/Custódia, Âmbula e Teca">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Ostensório e Âmbula</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Galhetas, Lavabo, Manustérgio e Sineta">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Galhetas, Lavabo e Sineta</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+            </div>
+
+            <ul>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-OfZ0E8zSrVQmmEppEViHSocYaO0j2HjGTX0KervtS1z-Mik78OnOoRE&s=10">Cálice</a></strong> Conterá o Sangue de Jesus após a consagração. É acompanhado de outros objetos.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-OfZ0E8zSrVQmmEppEViHSocYaO0j2HjGTX0KervtS1z-Mik78OnOoRE&s=10">Patena:</a></strong> Pratinho que contém a Hóstia Magna. Acompanha o cálice.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-OfZ0E8zSrVQmmEppEViHSocYaO0j2HjGTX0KervtS1z-Mik78OnOoRE&s=10">Corporal:</a></strong> Tecido quadrado que serve para conter grãos da Hóstia Magna, caso essa os derrube ao ser partida. Acompanha o cálice.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-OfZ0E8zSrVQmmEppEViHSocYaO0j2HjGTX0KervtS1z-Mik78OnOoRE&s=10">Pala:</a></strong> Tecido quadrado e rígido, tampa e protege a Hóstia Magna. Acompanha o cálice.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-OfZ0E8zSrVQmmEppEViHSocYaO0j2HjGTX0KervtS1z-Mik78OnOoRE&s=10">Sanguíneo:</a></strong> Limpa o cálice, patena e âmbulas, retirando qualquer resquício da Eucaristia que poderia ser descartada incorretamente. Acompanha o cálice.</li>
+                <li><strong><a href="https://http2.mlstatic.com/D_NQ_NP_873576-MLB113469235871_062026-O.webp">Manustérgio:</a></strong> Toalhas usadas pelo celebrante e ministros para enxugar as mãos, antes de manusear as hóstias.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkrtugFBU7J9oNJFU7vosBi9nXQc4MEiw39v74IUAJyCP3L0JQZ_WelvA&s=10">Lavabo</a></strong> Conjunto de jarro com bacia, usada pelo celebrante para lavar as mãos antes de manusear as hóstias. É acompanhado pelo manustérgio do padre.</li>
+                <li><strong><a href="https://static.casadamae.com.br/public/casadamae/imagens/produtos/jogo-de-galhetas-com-gravacao-69b2ce2bc8e52.jpg">Galhetas:</a></strong> 2 frascos que contém vinho e água. Usados no momento do ofertório e comunhão.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmd3VL9nfHddy-Zpd9OGehU4_woMPD7iEJz0F4U-hDexpd_gO2iygSBFP7&s=10">Turíbulo:</a></strong> Carrega brasa, que solta fumaça perfumada graças ao incenso. Representa as súplicas da Igreja que sobem aos céus.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/1036390/naveta_com_colher_italiana_dourada_6562_2_ae7efb385608566f46d3158f0ab0f72b.jpg">Naveta:</a></strong> Em formato de barca, carrega o incenso que é usado no turíbulo.</li>
+                <li><strong><a href="https://http2.mlstatic.com/D_NQ_NP_831887-MLB107741974775_022026-O.webp">Aspersório/Caldeirinha:</a></strong> Carrega a água benta, que é aspergida nos fiéis e objetos que serão abençoados.</li>
+                <li><strong><a href="https://static.casadamae.com.br/public/casadamae/imagens/produtos/ostensorio-de-madeira-com-pintura-dourado-pedras-vermelhas-100-cm-60887.jpg">Ostensório/Custódia:</a></strong> Carrega o Santíssimo (Jesus Eucarístico). Usado nas exposições e Missa de Corpus Christi.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDsuutYvweamBmQXt64TUVrjM43-B6KT4btrHjpd4m6A&s">Âmbula/Cibório/Píxide:</a></strong> Recipiente que guarda as hóstias que estão consagradas. Se estiverem vazias, elas serão ocupadas pelas hóstias consagradas.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNEGBJpeFwq1Beb04LTPkH9G1cygvPsz52Illm4PzrOg&s=10">Teca:</a></strong> Pequeno recipiente com hóstias menores, dedicadas aos doentes.</li>
+                <li><strong><a href="https://http2.mlstatic.com/D_Q_NP_2X_613325-MLB118740432721_102026-P.webp">Sineta/Carrilhão:</a></strong> Conjunto de sinos usados no momento da Consagração e em Missas mais Solenes, como a Vigília Pascal.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/1139701/180_cruz_processional_21_1_0b2f9b0575857c4fb64ebe6cf83de5e7.jpg">Cruz processional:</a></strong> Crucifixo em uma haste extensa, usada na procissão de entrada/saída.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRieKRLXjYX2ZrvRPdzvc4RxSsqAvPEsuYUR5T-yRWw8YhGwC6uk5qhoQ8&s=10">Missal:</a></strong> Contém todo o rito da Missa, sendo usado pelo celebrante, mais notavelmente, na Liturgia Eucarística.</li>
+                <li><strong><a href="https://editorapaulus.vtexassets.com/arquivos/ids/163068/kit-lecionario.png?v=638594231125570000">Lecionários:</a></strong> Contém as leituras, salmo e Evangelho da Missa que é celebrada no dia. Existem 3: Dominical, Semanal e Santoral.</li>
+                <li><strong><a href="https://editorapaulus.vtexassets.com/arquivos/ids/159486/ritual-de-bencaos.png?v=637909213606200000">Livros de bênçãos:</a></strong> Esses são usados mais pelo padre, mas ainda é importante conhecê-los. Existem livros para bênçãos diversas, casamentos, crisma, etc.</li>
+                <li><strong><a href="https://www.pantokrator.org.br/wp-content/uploads/2023/04/Ari_SITE-IMAGENS-500-%C3%97-500-px-2023-04-12T141030.009.jpg">Círio Pascal:</a></strong> Usado desde a Vigília Pascal até Pentecostes. Representa a luz de Cristo em sua ressurreição.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/280297/acendedor_e_apagador_de_vela_100cm_2_20250818100910_1bcc4a413a7a.png">Acendedor do Círio:</a></strong> Usado para acender o Círio Pascal. Não é exatamente um objeto litúrgico.</li>
+                <li><strong><a href="https://www.padreeustaquio.com.br/wp-content/uploads/2022/12/coroa-do-advento.jpeg">Coroa do Advento:</a></strong> Representa o período de preparação para o Natal. É formado por 4 velas.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTfKs-G-fCMHZxwXxFCxWPU9ZlKAF5NTrSgmknuOlkrW0PSCDuf8jwAKoi&s=10">Castiçais:</a></strong> Carregam as velas usadas pelos acólitos. Também podem se referir aos castiçais que ficam sobre o Altar.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw8MOrCE8dzVEawI2MnhOxFzcvF2_vMC55J5MOBtElDv27pmFY2UgG0Uo&s=10">Tochas:</a></strong> Função semelhante à das velas, mas usada em procissões e momentos mais solenes.</li>
+            </ul>
+        </section>
+
+        <!-- 2.5 VESTES LITÚRGICAS -->
+        <section id="vestes">
+            <h2>2.5 Vestes Litúrgicas</h2>
+            <p>É importante conhecermos as vestes litúrgicas que o celebrante e a equipe de celebração usam, já que seu uso é contínuo e frequente.</p>
+            <div class="obs-box">
+                <strong>Obs:</strong> As vestes dos celebrantes variam de acordo com a cor litúrgica.
+            </div>
+
+            <!-- ESPAÇOS RESERVADOS PARA FOTOS DE VESTES -->
+            <div class="photo-grid">
+                <div class="photo-slot" data-caption="Vestes do Padre: Alva, Cíngulo, Estola e Casula">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Vestes do Padre</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Insígnias e Vestes do Bispo: Mitra, Báculo, Solidéu e Cruz Peitoral">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Vestes do Bispo</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Vestes dos Acólitos e Coroinhas da Paróquia Santa Cruz">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Vestes dos Acólitos/Coroinhas</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+            </div>
+
+            <h3>Vestes do Padre</h3>
+            <ul>
+                <li><strong><a href="https://www.artesacro.com.br/media/catalog/product/cache/61add434daab5e5321e1e0e0afad7e44/b/a/batina-padre-bt.104_1.jpg">Batina/Sotaina:</a></strong> A roupa preta longa usada por membros do clero. É inteiramente preta, tendo o clesma (parte branca inserível na gola) como única variação de cor. É para o uso cotidiano, mas não obrigatória.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/280297/amito_tradicional_at291_1_20250804112627_012bfb9f4b2d.png">Amito:</a></strong> Tecido branco colocado nos ombros para cobrir o pescoço. Anda caindo em desuso.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgAYvoe8qo6FfR_zrOEiFJi0CLevLDwXeYj0xfuvxiq7-xNrX78db6-FDI&s=10">Alva:</a></strong> Túnica branca, representando a pureza de Deus.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5x4e1C1CuBNC86JFAur3kOoBZq67TCES3vVoVk3gdfTTPea1Pw7oiewvk&s=10">Cíngulo:</a></strong> Cordão usado para ajustar a alva. Símbolo de castidade e serviço.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/280297/estola_sacerdotal_so_boaventura_es344_2_20250806100618_4de64337bed6.png">Estola:</a></strong> Tecido que fica nos ombros, é um sinal de sua missão.</li>
+                <li><strong><a href="https://paramentosliturgicos.cdn.magazord.com.br/img/2025/10/produto/7796/510f-3053-1.png?ims=fit-in/400x400/filters:fill(white)">Casula:</a></strong> Veste que cobre todo o resto.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/280297/manipulo_tridentino_mp100_5145_2_20220621175911.jpg">Manípulo:</a></strong> "Toalha" amarrada no braço esquerdo do celebrante, para enxugar o suor ou lágrimas. Vem caindo em desuso, principalmente após a reforma na liturgia graças ao Concílio Vaticano II.</li>
+                <li><strong><a href="https://www.artesacro.com.br/media/catalog/product/cache/61add434daab5e5321e1e0e0afad7e44/o/i/oi_2_13.png">Barrete:</a></strong> Chapéu de 4 pontas e um pompom no centro. Também está caindo em desuso no cotidiano, mas é bem comum entre os cardeais.</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/280297/roquete_renda_litrgica_jhs_60_cm_ro002_1_20250811174540_8e4ab736f3b9.png">Roquete:</a></strong> Espécie de sobrepeliz branca com mangas mais estreitas, usada exclusivamente por prelados (como bispos e arcebispos) sobre a batina em cerimônias fora da missa.</li>
+            </ul>
+
+            <h3>Vestes do Bispo</h3>
+            <ul>
+                <li><strong><a href="https://www.artesacro.com.br/media/catalog/product/cache/61add434daab5e5321e1e0e0afad7e44/b/a/batina_episcopal-bispo-catolico.jpg">Batina:</a></strong> Diferente do padre, o bispo usa uma batina roxa/violácea (ou preta com detalhes roxos).</li>
+                <li><strong><a href="https://images.tcdn.com.br/img/img_prod/280297/solideu_nacional_cor_violaceo_6818_1_4b59c529cdeb3fc65504d8139c2edfc1_20220621175401.jpg">Solidéu:</a></strong> Chapéu redondo de cor violácea, usado no topo da cabeça.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJaLTWM9dumwiixa9dZsTKfgdq2_OeTENhnlCNbje_tw&s=10">Cruz Peitoral:</a></strong> Crucifixo suspenso por uma corda ou corrente.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTseahtCqG1adIZKKNDFv1MdMEyL4-Gs_sS7eiOn11Wg&s=10">Anel episcopal:</a></strong> Representa sua união com a diocese e a Igreja.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0jY7_cokGCKrLBqoGsvrZwbEGb9M1TNxU-TS-jjUxnGLyvjPMMpLnOI0&s=10">Báculo:</a></strong> Cajado curvo, representando seu papel como pastor da comunidade.</li>
+                <li><strong><a href="https://www.artesacro.com.br/media/catalog/product/cache/61add434daab5e5321e1e0e0afad7e44/m/i/mitra-verde-bispo-catolico.jpg">Mitra:</a></strong> Chapéu pontiagudo que representa sua autoridade.</li>
+                <li><strong><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3dr6E9nuqkvaydg_FZ-pyqqeNRgrxrBuynBiCfP2V4A&s=10">Pálio episcopal:</a></strong> Usado somente pelos arcebispos e papa, é uma faixa de lã com cruzes, representando a união e serviço do Bom Pastor.</li>
+            </ul>
+
+            <h3>Vestes do Diácono</h3>
+            <ul>
+                <li><strong><a href="https://www.artesacro.com.br/media/catalog/product/cache/61add434daab5e5321e1e0e0afad7e44/d/a/dalmatica-tempo-comum-artesacro.jpg">Dalmática:</a></strong> Semelhante à casula, mas com estampas diferentes. Também pode ser usada por um bispo por baixo da casula, em ocasiões muito solenes.</li>
+            </ul>
+
+            <h3>Vestes do Acólito e Coroinha</h3>
+            <div class="obs-box">
+                <strong>OBS:</strong> As vestimentas listadas abaixo correspondem às vestes que usamos em <strong>NOSSA paróquia</strong>. As vestes podem variar dependendo das paróquias.
+            </div>
+            <ul>
+                <li><strong>Túnica:</strong> Peça vermelha (meninos) ou branca (meninas), representando a pureza e sacrifício.</li>
+                <li><strong>Pala:</strong> Capa curta vermelha usada pelas coroinhas. É semelhante à mozeta, usada por membros do clero.</li>
+                <li><strong>Cíngulo:</strong> Mesma função do cíngulo dos membros do clero, mas de cor vermelha, ao invés de branco.</li>
+                <li><strong>Sobrepeliz:</strong> Veste semelhante a uma alva curta, usada pelos acólitos. Semelhante ao roquete.</li>
+                <li><strong>Cruz peitoral:</strong> Cruz pendurada em um cordão. Em alguns locais, é substituído pelo Tau (cruz de São Francisco de Assis), com os 3 nós na corda.</li>
+            </ul>
+        </section>
+
+        <!-- 2.6 PARTES DA IGREJA E 2.7 GESTOS -->
+        <section id="igreja-gestos">
+            <h2>2.6 Partes da Igreja e 2.7 Gestos</h2>
+
+            <h3>2.6 Partes da Igreja</h3>
+            <div class="photo-grid">
+                <div class="photo-slot" data-caption="Presbitério, Altar e Ambão da Paróquia Santa Cruz">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Presbitério, Altar e Ambão</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Capela do Santíssimo, Sacrário e Credência">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Sacrário e Credência</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+            </div>
+
+            <ul>
+                <li><strong>Altar:</strong> Grande "mesa" central, onde o sacrifício da Missa é celebrado.</li>
+                <li><strong>Ambão:</strong> Local onde se faz a leitura.</li>
+                <li><strong>Sacrário/Tabernáculo:</strong> "Cofre" onde se armazena as Hóstias Consagradas. É Jesus presente e vivo. Em algumas Igrejas mais antigas, o Sacrário faz parte do Presbitério.</li>
+                <li><strong>Presbitério:</strong> Área onde o celebrante e seus auxiliares se encontram. Esse espaço abriga o Altar e ambão.</li>
+                <li><strong>Nave:</strong> É a parte central de uma igreja, destinada ao público e aos fiéis para acompanharem as celebrações.</li>
+                <li><strong>Sacristia:</strong> Local onde ficam guardados os objetos litúrgicos, vestes e demais pertences da Igreja. Aqueles que vão servir na Missa se arrumam aqui.</li>
+                <li><strong>Credência:</strong> Mesas laterais do Altar, onde ficam os objetos litúrgicos que serão usados na Missa.</li>
+                <li><strong>Capela do Santíssimo:</strong> Local de silêncio e recolhimento, pois abriga o Sacrário. Possui cadeiras e genuflexórios para a oração.</li>
+            </ul>
+
+            <h3>2.7 Gestos e Postura</h3>
+            <p>O acólito deve permanecer em posição pronta e comportada, com as <strong>mãos postas em sinal de oração</strong>. Assim, aquele que está servindo permanece discreto, sem tirar a atenção da Missa. Deve-se evitar fazer caretas, dar risada, se comunicar com os outros no presbitério em voz alta ou tomar posturas que chamem a atenção.</p>
+
+            <div class="photo-grid">
+                <div class="photo-slot" data-caption="Postura correta: Mãos postas em oração">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Mãos Postas</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+                <div class="photo-slot" data-caption="Reverências: Inclinação Profunda e Genuflexão">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-text">Foto: Inclinação e Genuflexão</span>
+                    <span class="placeholder-hint">Toque para expandir</span>
+                </div>
+            </div>
+
+            <h4>Tipos de reverência em momentos específicos da Missa:</h4>
+            <ul>
+                <li><strong>Inclinação simples:</strong> Abaixa-se levemente a cabeça. Realizada quando Maria ou o santo padroeiro/do dia é mencionado.</li>
+                <li><strong>Inclinação com os ombros:</strong> Um pouco mais profunda, realizada com menções a Jesus Cristo.</li>
+                <li><strong>Inclinação profunda:</strong> Inclinação do tórax para frente. Usada exclusivamente para a Santíssima Trindade e ao passar na frente do Altar.</li>
+                <li><strong>Genuflexão:</strong> Usada ao passar na frente do Sacrário. Encosta-se o joelho direito no chão. Quando as Espécies Consagradas estão expostas, deve-se ajoelhar com ambos os joelhos no chão.</li>
+            </ul>
+
+            <div class="obs-box">
+                <strong>Obs:</strong> Não há a necessidade de fazer uma reverência ao mencionar o Papa ao decorrer da Oração Eucarística.
+            </div>
+        </section>
+
+        <!-- 3. CONTEÚDO ADICIONAL -->
+        <section id="espiritualidade">
+            <h2>3. Conteúdo Adicional</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>3.1 Orações que o acólito deve saber</h3>
+                    <ul>
+                        <li><a href="https://www.vaticannews.va/pt/oracoes/pai-nosso.html">Pai Nosso</a></li>
+                        <li><a href="https://www.vaticannews.va/pt/oracoes/ave-maria.html   ">Ave Maria</a></li>
+                        <li><a href="https://www.vaticannews.va/pt/oracoes/simbolo-dos-apostolos.html">Credo</a></li>
+                        <li><a href="https://www.vaticannews.va/pt/oracoes/simbolo-dos-apostolos.html">Credo Niceno-Constantinopolitano</a></li>
+                        <li><a href="https://www.vaticannews.va/pt/oracoes/gloria-ao-pai.html">Glória ao Pai</a></li>
+                        <li><a href="https://www.vaticannews.va/pt/oracoes/ao-anjo-da-guarda.html">Oração do Santo Anjo</a></li>
+                        <li><a href="https://santuario.cancaonova.com/oracao/oracoes-vinde-espirito-santo-e-veni-creator-spiritus-vem-espirito-criador/">Vinde Espírito Santo</a></li>
+                        <li><a href="https://saojudasgyn.com.br/site/acolitos-e-coroinhas/">Oração do Coroinha</a></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>3.2 Virtudes de um bom cristão</h3>
+                    <ul>
+                        <li>Humildade</li>
+                        <li>Obediência</li>
+                        <li>Caridade</li>
+                        <li>Paciência</li>
+                        <li>Disciplina</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3.2 Vida de Oração e Espiritualidade</h3>
+            <p>Todos devem ter uma vida de oração constante, e os acólitos não são exceção. Devemos entregar nosso dia e dificuldades a Deus, agradecer pela oportunidade de servi-Lo no Altar, ter uma leitura frequente da Bíblia para conhecer mais Nosso Senhor e adorar a Jesus Eucarístico.</p>
+            <p><strong>Dicas:</strong> reserve um momento do seu dia para orar, faça pequenas jaculatórias durante o dia, confesse-se regularmente, leia a liturgia diária (disponível em sites da internet), pratique o exame de consciência e conheça a vida dos santos.</p>
+
+            <h3>3.3 Escala</h3>
+            <p>As escalas são montadas de acordo com a programação mensal da paróquia e a disponibilidade de cada um. É de suma importância a responsabilidade e compromisso de cada um, para o melhor cumprimento possível. Em ocasiões onde você não conseguirá comparecer a uma Missa que estava escalado, <strong>avise com antecedência</strong>, para que alguém vá em seu lugar ou possa substituir o dia com você. Em casos de emergência, onde não é possível trocar com alguém, deve-se ao menos avisar no grupo.</p>
+
+            <h3>3.4 Estudo</h3>
+            <ul>
+                <li><strong>Catecismo da Igreja Católica:</strong> Suma de toda a catequese e doutrina da Igreja, promulgada por São João Paulo II;</li>
+                <li><strong>Missal Romano:</strong> Crucial para uma melhor compreensão da liturgia e ritos na Missa;</li>
+                <li><strong>Imitação de Cristo:</strong> Ainda que antigo, apresenta conhecimentos atemporais para a santificação do indivíduo, com ensinamentos valiosos;</li>
+                <li><strong>IGMR (Instrução Geral do Missal Romano):</strong> Muito técnico, mas um complemento excelente para aqueles que querem conhecer melhor a Liturgia e já conhecem o Missal.</li>
+            </ul>
+        </section>
+
+        <!-- 3.5 CONTATOS -->
+        <section id="contatos">
+            <h2>3.5 Contatos</h2>
+            <p>Em caso de dúvidas, trocas na escala ou informações sobre a pastoral, entre em contato pelos canais abaixo:</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Coordenadores da Pastoral</h4>
+                    <p><strong>Adriana:</strong> (14) 99119-3369</p>
+                    <div class="contact-actions">
+                        <a href="https://wa.me/5514991193369" target="_blank" rel="noopener" class="contact-link whatsapp">WhatsApp</a>
+                        <a href="tel:+5514991193369" class="contact-link">Ligar</a>
+                    </div>
+
+                    <p style="margin-top: 1.2rem;"><strong>Luciano:</strong> (14) 99116-0582</p>
+                    <div class="contact-actions">
+                        <a href="https://wa.me/5514991160582" target="_blank" rel="noopener" class="contact-link whatsapp">WhatsApp</a>
+                        <a href="tel:+5514991160582" class="contact-link">Ligar</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h4>Secretaria da Paróquia</h4>
+                    <p><strong>Telefone / WhatsApp:</strong> (14) 99168-3415</p>
+                    <div class="contact-actions">
+                        <a href="https://wa.me/5514991683415" target="_blank" rel="noopener" class="contact-link whatsapp">WhatsApp</a>
+                        <a href="tel:+5514991683415" class="contact-link">Ligar</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h4>Pároco / Padre</h4>
+                    <p><strong>Telefone / WhatsApp:</strong> (14) 99637-4598</p>
+                    <div class="contact-actions">
+                        <a href="https://wa.me/5514996374598" target="_blank" rel="noopener" class="contact-link whatsapp">WhatsApp</a>
+                        <a href="tel:+5514996374598" class="contact-link">Ligar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 4. CONCLUSÃO / RODAPÉ -->
+    <footer>
+        <h3>4. Conclusão</h3>
+        <p>"Acólito, o convite que Deus lhe fez para servi-Lo de perto é um privilégio que muitos não têm. Seja luz dentro e fora da Igreja, não tenha medo ou vergonha de seguir a Cristo, independente dos desafios, e lembre-se que a caminhada na fé é cheia de obstáculos, mas com uma recompensa incomparável. É uma alegria imensa te ter nessa pastoral. Deus o abençoe e te recompense por seu amor!"</p>
+        <p style="font-size: 0.85rem; color: var(--gold); margin-top: 1.5rem;">Pastoral dos Acólitos e Coroinhas — Paróquia Santa Cruz</p>
+    </footer>
+
+    <!-- MODAL LIGHTBOX PARA EXPANDIR FOTOS -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Fechar visualização">&times;</button>
+        <div class="lightbox-content" id="lightboxContent">
+            <!-- Conteúdo inserido via JS -->
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT INTERNO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Menu Mobile (Navbar responsiva)
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navbar = document.getElementById('navbar');
+
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = navLinks.classList.toggle('show');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+                menuToggle.textContent = isOpen ? '✕' : '☰';
+            });
+
+            // Fecha o menu mobile ao clicar em algum link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('show');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.textContent = '☰';
+                });
+            });
+
+            // Fecha o menu mobile ao tocar fora da navbar
+            document.addEventListener('click', (e) => {
+                if (!navbar.contains(e.target) && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.textContent = '☰';
+                }
+            });
+
+            // 2. Sistema de Expansão de Fotos (Lightbox)
+            const photoSlots = document.querySelectorAll('.photo-slot');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightboxContent');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            photoSlots.forEach(slot => {
+                slot.addEventListener('click', () => {
+                    const img = slot.querySelector('img');
+                    const caption = slot.getAttribute('data-caption') || 'Imagem da Formação';
+
+                    lightboxContent.innerHTML = '';
+
+                    if (img) {
+                        const expandedImg = document.createElement('img');
+                        expandedImg.src = img.src;
+                        expandedImg.alt = img.alt || caption;
+                        lightboxContent.appendChild(expandedImg);
+                    } else {
+                        const placeholderBox = document.createElement('div');
+                        placeholderBox.className = 'lightbox-placeholder-expanded';
+                        placeholderBox.innerHTML = `
+                            <span style="font-size: 2.5rem; color: #C59B27; margin-bottom: 0.8rem;">🖼️</span>
+                            <strong style="color: #8B1E24; font-size: 1.1rem;">Espaço Reservado para Foto</strong>
+                            <p style="color: #5C5855; margin-top: 0.5rem; font-size: 0.9rem;">Quando você adicionar uma tag &lt;img&gt; neste quadro, ela aparecerá aqui em tamanho ampliado.</p>
+                        `;
+                        lightboxContent.appendChild(placeholderBox);
+                    }
+
+                    const captionEl = document.createElement('div');
+                    captionEl.className = 'lightbox-caption';
+                    captionEl.textContent = caption;
+                    lightboxContent.appendChild(captionEl);
+
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Evita rolagem do fundo no celular
+                });
+            });
+
+            // Fechar o Lightbox
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
